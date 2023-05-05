@@ -1,9 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral&display=swap");
+
 .App {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-align: center;
+  font-family: "Spectral", serif;
 }
 
+.filter-container {
+	display: flex;
+	flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 100px;
+}
 
-
+#region-select {
+  width: 100px;
+  height: 25px;
+}

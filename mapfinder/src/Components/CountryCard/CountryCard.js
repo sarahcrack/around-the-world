@@ -18,42 +18,37 @@ PLAN
         - Display .flags.png"url", .name, .capital, .population
 */
 
-function CountryCard() {
-  //create a function that calls the rest countries API using useEffect
-  //call Germany
-  //display in App
-
-  const [countryData, setCountryData] = useState([]); //set up a state for the country data and set it to an empty array to start with
-
-  useEffect(() => {
-    async function fetchCountries() {
-      const response = await fetch(`https://restcountries.com/v3.1/all`); //fetch the data from the API
-      const data = await response.json();
-      setCountryData(data);
-    }
-    fetchCountries();
-  }, []);
-
-  return (
-    <div className="container">
-      {countryData.map(
-        (
-          country //map through the countryData array and render a CountryDisplay component for each country, passing down the country's name, capital, population, and flag URL as props.
-        ) => (
-          <CountryDisplay
-            key={country.cca3}
-            name={country.name.common}
-            capital={country.capital?.[0]}
-            population={country.population}
-            flagUrl={country.flags.svg}
-            region = {country.region}
-          />
-        )
-      )}
-    </div>
-  );
+function CountryCard({ selectedRegion }) {
+	const [countryData, setCountryData] = useState([]);
+	useEffect(() => {
+		async function fetchCountries() {
+			const response = await fetch(`https://restcountries.com/v3.1/all`);
+			const data = await response.json();
+			setCountryData(data);
+		}
+		fetchCountries();
+	}, []);
+	const filteredCountryData = selectedRegion
+		? countryData.filter((country) => country.region === selectedRegion) // filter the countryData array based on the selected region if a region is selected
+		: countryData;
+	return (
+		<div className="container">
+			{filteredCountryData.map(
+				(country) =>
+					country.flags && (
+						<CountryDisplay
+							key={country.cca3}
+							name={country.name.common}
+							capital={country.capital?.[0]}
+							population={country.population}
+							flagUrl={country.flags.svg}
+							region={country.region}
+						/>
+					)
+			)}
+		</div>
+	);
 }
-
 export default CountryCard;
 
 // In this implementation, the CountryCard component fetches all the countries from the API using the all endpoint, and sets the fetched data in the countryData state.
