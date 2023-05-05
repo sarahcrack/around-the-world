@@ -1,29 +1,30 @@
-h2 {
-}
+@import url("https://fonts.googleapis.com/css2?family=Spectral&display=swap");
 
 .flag {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .card-container {
-	max-width: 200px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	margin: 30px;
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
+  max-width: 250px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Spectral", serif;
 }
 
 .flag-image {
-	flex-basis: 50%;
+  flex-basis: 50%;
 }
 
 .country-text {
-	flex-basis: 50%;
-	text-align: left;
-	padding-left: 10px;
+  flex-basis: 50%;
+  text-align: left;
+  padding-left: 10px;
 }
