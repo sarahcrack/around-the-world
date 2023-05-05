@@ -26,20 +26,23 @@ function CountryCard() {
   useEffect(() => {
     async function fetchCountry() {
       const response = await fetch(
-        `https://restcountries.com/v3.1/name/germany`
+        `https://restcountries.com/v3.1/all`
       );
       const data = await response.json();
       console.log(data);
       setCountryData(data[0]);
-      console.log(data[0].name.common);
+      console.log(data[0].population);
     }
     fetchCountry();
   }, []);
 
   return (
     <div>
-      {countryData.name?.common}
-      <p>Capital: {countryData?.capital[0]}</p>
+    
+<img src={countryData?.flags?.png} alt={countryData?.flags?.alt} />
+     <h2>{countryData?.name?.common}</h2>
+      <p>Capital: {countryData?.capital}</p>
+      <p>Population: {countryData?.population}</p>
     </div>
   );
 }
