@@ -9,8 +9,11 @@ function App() {
 	const handleRegionChange = (event) => {
 		setSelectedRegion(event.target.value); // update the selected region state when the user chooses a region from the select input
 	};
+
 	return (
+
 		<div className="App">
+     <header><h1> Where in the world shall we go?! 🗺 </h1></header>
 			<div className="filter-container">
 				<div className="filters">
 					<label htmlFor="region-select">Filter by region: </label>
