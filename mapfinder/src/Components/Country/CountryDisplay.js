@@ -1,6 +1,6 @@
 import "./CountryDisplay.css";
 
-function CountryDisplay({ name, capital, population, flagUrl }) {
+function CountryDisplay({ name, capital, population, flagUrl,region }) {
 	return (
 		<div className="card-container">
 			<div className="flag-image">
@@ -10,6 +10,9 @@ function CountryDisplay({ name, capital, population, flagUrl }) {
 				<h2>{name}</h2>
 				<p>
 					<strong>Capital:</strong> {capital}
+				</p>
+				<p>
+					<strong>Region: </strong>{region}
 				</p>
 				<p>
 					<strong>Population: </strong>

@@ -46,6 +46,7 @@ function CountryCard() {
             capital={country.capital?.[0]}
             population={country.population}
             flagUrl={country.flags.svg}
+            region = {country.region}
           />
         )
       )}
