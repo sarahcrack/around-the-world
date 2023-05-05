@@ -1,3 +1,6 @@
+import React from "react";
+import { useState, useEffect } from "react";
+
 /*
 PLAN    
     Display the data on the page
@@ -13,9 +16,33 @@ PLAN
         - Display .flags.png"url", .name, .capital, .population
 */
 
-export default function CountryCard() {
-	//create a function that calls the rest countries API using useEffect
-	//call Germany
-	//display in App
-	return <p>Hello</p>;
+function CountryCard({ countryName }) {
+  //create a function that calls the rest countries API using useEffect
+  //call Germany
+  //display in App
+
+  const [countryData, setCountryData] = useState(null);
+
+  useEffect(() => {
+    async function fetchCountry() {
+      const response = await fetch(
+        `https://restcountries.com/v3.1/name/${countryName}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setCountryData(data[0]);
+      console.log(data[0].name.common);
+    }
+    fetchCountry();
+  }, [countryName]);
+
+  return <div>{countryData.name.common}</div>;
 }
+
+/* <div>
+        <h2>{countryData.name.common}</h2>
+        <p>Capital: {countryData.capital[0]}</p>
+        <p>Population: {countryData.population}</p>
+        {/* Add other properties you want to display */
+
+export default CountryCard;
