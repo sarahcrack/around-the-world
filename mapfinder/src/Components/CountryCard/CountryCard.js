@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import './CountryCard.css';
 import CountryDisplay from "../Country/CountryDisplay";
 
 /*
@@ -37,7 +37,7 @@ function CountryCard() {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
 
       {countryData.map(
         (
