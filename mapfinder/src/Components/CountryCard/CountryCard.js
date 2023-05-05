@@ -26,16 +26,19 @@ function CountryCard() {
   const [countryData, setCountryData] = useState([]); //set up a state for the country data and set it to an empty array to start with
 
   useEffect(() => {
+
     async function fetchCountries() {
       const response = await fetch(`https://restcountries.com/v3.1/all`); //fetch the data from the API
       const data = await response.json();
       setCountryData(data);
+
     }
     fetchCountries();
   }, []);
 
   return (
     <div>
+
       {countryData.map(
         (
           country //map through the countryData array and render a CountryDisplay component for each country, passing down the country's name, capital, population, and flag URL as props.
