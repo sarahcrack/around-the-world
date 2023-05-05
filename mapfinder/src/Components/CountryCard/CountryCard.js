@@ -16,17 +16,17 @@ PLAN
         - Display .flags.png"url", .name, .capital, .population
 */
 
-function CountryCard({ countryName }) {
+function CountryCard() {
   //create a function that calls the rest countries API using useEffect
   //call Germany
   //display in App
 
-  const [countryData, setCountryData] = useState(null);
+  const [countryData, setCountryData] = useState([]);
 
   useEffect(() => {
     async function fetchCountry() {
       const response = await fetch(
-        `https://restcountries.com/v3.1/name/${countryName}`
+        `https://restcountries.com/v3.1/name/germany`
       );
       const data = await response.json();
       console.log(data);
@@ -34,9 +34,14 @@ function CountryCard({ countryName }) {
       console.log(data[0].name.common);
     }
     fetchCountry();
-  }, [countryName]);
+  }, []);
 
-  return <div>{countryData.name.common}</div>;
+  return (
+    <div>
+      {countryData.name?.common}
+      <p>Capital: {countryData?.capital[0]}</p>
+    </div>
+  );
 }
 
 /* <div>

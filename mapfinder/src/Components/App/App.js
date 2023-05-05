@@ -4,11 +4,11 @@ import CountryCard from "../CountryCard/CountryCard";
 
 function App() {
   // set up a state for the country name
-  const [countryName, setCountryName] = useState("spain");
+//   const [countryName, setCountryName] = useState("spain");
 
   return (
     <div className="App">
-      <CountryCard countryName={countryName} />
+      <CountryCard  />
     </div>
   );
 }
